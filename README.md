@@ -12,3 +12,42 @@ The developments in the dependency treebanking made it clear that Turkish langua
 For Developers
 ============
 You can also see either [Java](https://github.com/starlangsoftware/TurkishDependencyParser), [Python](https://github.com/starlangsoftware/TurkishDependencyParser-Py), [Cython](https://github.com/starlangsoftware/TurkishDependencyParser-Cy), [C++](https://github.com/starlangsoftware/TurkishDependencyParser-CPP), or [C#](https://github.com/starlangsoftware/TurkishDependencyParser-CS) repository.
+
+## Requirements
+
+* Xcode Editor
+* [Git](#git)
+
+### Git
+
+Install the [latest version of Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+
+## Download Code
+
+In order to work on code, create a fork from GitHub page. 
+Use Git for cloning the code to your local or below line for Ubuntu:
+
+	git clone <your-fork-git-link>
+
+A directory called Corpus-Swift will be created. Or you can use below link for exploring the code:
+
+	git clone https://github.com/starlangsoftware/TurkishDependencyParser-Swift.git
+
+## Open project with XCode
+
+To import projects from Git with version control:
+
+* XCode IDE, select Clone an Existing Project.
+
+* In the Import window, paste github URL.
+
+* Click Clone.
+
+Result: The imported project is listed in the Project Explorer view and files are loaded.
+
+
+## Compile
+
+**From IDE**
+
+After being done with the downloading and opening project, select **Build** option from **Product** menu. After compilation process, user can run TurkishDependencyParser-Swift.
