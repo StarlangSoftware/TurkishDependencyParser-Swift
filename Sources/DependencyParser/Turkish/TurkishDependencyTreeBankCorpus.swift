@@ -1,0 +1,81 @@
+//
+//  File.swift
+//  
+//
+//  Created by Olcay Taner YILDIZ on 30.03.2021.
+//
+
+import Foundation
+import Corpus
+import DataStructure
+import Dictionary
+import MorphologicalAnalysis
+
+public class TurkishDependencyTreeBankCorpus : NSObject, XMLParserDelegate{
+    
+    private var value: String = ""
+    private var sentences: [Sentence] = []
+    private var sentence: TurkishDependencyTreeBankSentence? = nil
+    private var word: TurkishDependencyTreeBankWord? = nil
+
+    /**
+     * Empty constructor for {@link TurkishDependencyTreeBankCorpus}. Initializes the sentences and wordList attributes.
+     */
+    public override init(){
+    }
+
+    public init(fileName: String){
+        super.init()
+        let thisSourceFile = URL(fileURLWithPath: #file)
+        let thisDirectory = thisSourceFile.deletingLastPathComponent()
+        let url = thisDirectory.appendingPathComponent(fileName)
+        let parser : XMLParser = XMLParser(contentsOf: url)!
+        parser.delegate = self
+        parser.parse()
+    }
+    
+    public func sentenceCount() -> Int{
+        return sentences.count
+    }
+    
+    public func getSentence(index: Int) -> Sentence{
+        return sentences[index]
+    }
+
+    /**
+     * Constructor to create an empty copy of this corpus.
+     - Returns: An empty copy of this corpus.
+     */
+    public func emptyCopy() -> TurkishDependencyTreeBankCorpus{
+        return TurkishDependencyTreeBankCorpus()
+    }
+    
+    public func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+        switch elementName {
+            case "W":
+                word = TurkishDependencyTreeBankWord(attributeDict: attributeDict)
+            case "S":
+                sentence = TurkishDependencyTreeBankSentence()
+            default:
+                break
+        }
+    }
+    
+    public func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?){
+        switch elementName {
+            case "W":
+                word?.setName(name: value)
+                sentence?.addWord(word: word!)
+            case "S":
+                sentences.append(sentence!)
+            default:
+                break
+        }
+    }
+    
+    public func parser(_ parser: XMLParser, foundCharacters string: String){
+        if string != "\n"{
+            value = value + string
+        }
+    }
+}
