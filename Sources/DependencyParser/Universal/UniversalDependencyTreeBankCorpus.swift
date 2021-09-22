@@ -46,10 +46,7 @@ public class UniversalDependencyTreeBankCorpus : Corpus{
                             var relation : UniversalDependencyRelation? = nil
                             if items[6] != "_"{
                                 let to = Int(items[6])!
-                                var dependencyType : String = items[7].uppercased()
-                                if dependencyType.contains(":"){
-                                    dependencyType = String(dependencyType[..<dependencyType.firstIndex(of: ":")!])
-                                }
+                                let dependencyType : String = items[7].uppercased()
                                 relation = UniversalDependencyRelation(toWord: to, dependencyType: dependencyType)
                             }
                             let deps = items[8]

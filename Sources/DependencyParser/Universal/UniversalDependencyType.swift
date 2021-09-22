@@ -45,4 +45,25 @@ public enum UniversalDependencyType : String, CaseIterable{
     case ROOT
     case VOCATIVE
     case XCOMP
+    case ACL_RELCL
+    case AUX_PASS
+    case CC_PRECONJ
+    case COMPOUND_PRT
+    case DET_PREDET
+    case FLAT_FOREIGN
+    case NSUBJ_PASS
+    case CSUBJ_PASS
+    case NMOD_NPMOD
+    case NMOD_POSS
+    case NMOD_TMOD
+    case ADVMOD_EMPH
+    case AUX_Q
+    case COMPOUND_LVC
+    case COMPOUND_REDUP
+    case CSUBJ_COP
+    case NMOD_COMP
+    case NMOD_PART
+    case NSUBJ_COP
+    case OBL_AGENT
+    case OBL_TMOD
 }
