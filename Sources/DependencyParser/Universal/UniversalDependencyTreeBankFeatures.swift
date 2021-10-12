@@ -28,7 +28,11 @@ public class UniversalDependencyTreeBankFeatures{
     public func getFeatureValue(feature: String) -> String{
         return featureList[feature]!
     }
-    
+
+    public func featureExists(feature: String) -> Bool{
+        return featureList[feature] != nil
+    }
+
     public func description() -> String{
         if featureList.isEmpty{
             return "_"

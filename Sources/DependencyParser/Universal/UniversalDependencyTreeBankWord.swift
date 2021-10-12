@@ -55,7 +55,11 @@ class UniversalDependencyTreeBankWord : Word{
     public func getFeatureValue(featureName: String) -> String{
         return features.getFeatureValue(feature: featureName)
     }
-    
+
+    public func featureExists(featureName: String) -> Bool{
+        return features.featureExists(feature: featureName)
+    }
+
     public func getRelation()-> UniversalDependencyRelation?{
         return relation
     }
