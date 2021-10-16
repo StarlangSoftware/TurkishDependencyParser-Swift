@@ -31,4 +31,16 @@ public class UniversalDependencyTreeBankSentence : Sentence{
         }
         return result
     }
+    
+    public func compareParses(sentence : UniversalDependencyTreeBankSentence) -> ParserEvaluationScore{
+        let score = ParserEvaluationScore()
+        for i in 0..<words.count {
+            let relation1 = (getWord(index: i) as! UniversalDependencyTreeBankWord).getRelation()
+            let relation2 = (sentence.getWord(index: i) as! UniversalDependencyTreeBankWord).getRelation()
+            if relation1 != nil && relation2 != nil {
+                score.add(parserEvaluationScore: relation1!.compareRelations(relation: relation2!))
+            }
+        }
+        return score
+    }
 }

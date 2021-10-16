@@ -64,5 +64,16 @@ public class UniversalDependencyTreeBankCorpus : Corpus{
             addSentence(s: sentence!)
         }
     }
+    
+    public func compareParses(corpus : UniversalDependencyTreeBankCorpus) -> ParserEvaluationScore{
+        let score = ParserEvaluationScore()
+        for i in 0..<sentences.count {
+            let sentence1 = getSentence(index: i) as! UniversalDependencyTreeBankSentence
+            let sentence2 = corpus.getSentence(index: i) as! UniversalDependencyTreeBankSentence
+            score.add(parserEvaluationScore: sentence1.compareParses(sentence: sentence2))
+        }
+        return score
+    }
+
 
 }

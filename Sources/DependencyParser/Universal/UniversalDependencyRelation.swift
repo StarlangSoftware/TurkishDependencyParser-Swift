@@ -98,5 +98,22 @@ public class UniversalDependencyRelation : DependencyRelation, NSCopying{
     public func copy(with zone: NSZone? = nil) -> Any {
         return UniversalDependencyRelation(toWord: toWord, dependencyType: description())
     }
+    
+    public func compareRelations(relation : UniversalDependencyRelation) -> ParserEvaluationScore{
+        var LS : Double = 0.0
+        var LAS : Double = 0.0
+        var UAS : Double = 0.0
+        if description() == relation.description(){
+            LS = 1.0
+            if toWord == relation.to(){
+                LAS = 1.0
+            }
+        }
+        if toWord == relation.to(){
+            UAS = 1.0
+        }
+        return ParserEvaluationScore(LAS: LAS, UAS: UAS, LS: LS, wordCount:1)
+    }
+
 
 }
