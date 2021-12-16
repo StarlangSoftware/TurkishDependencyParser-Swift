@@ -26,10 +26,8 @@ public class TurkishDependencyTreeBankCorpus : NSObject, XMLParserDelegate{
 
     public init(fileName: String){
         super.init()
-        let thisSourceFile = URL(fileURLWithPath: #file)
-        let thisDirectory = thisSourceFile.deletingLastPathComponent()
-        let url = thisDirectory.appendingPathComponent(fileName)
-        let parser : XMLParser = XMLParser(contentsOf: url)!
+        let url = Bundle.module.url(forResource: fileName, withExtension: "xml")
+        let parser : XMLParser = XMLParser(contentsOf: url!)!
         parser.delegate = self
         parser.parse()
     }

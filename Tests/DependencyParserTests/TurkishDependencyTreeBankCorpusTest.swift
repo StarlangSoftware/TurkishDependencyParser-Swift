@@ -6,7 +6,7 @@ final class TurkishDependencyTreeBankCorpusTest: XCTestCase {
 
     func testDependencyCorpus() {
         let relationCounts : CounterHashMap<TurkishDependencyType> = CounterHashMap<TurkishDependencyType>()
-        let corpus : TurkishDependencyTreeBankCorpus = TurkishDependencyTreeBankCorpus(fileName: "../metu-treebank.xml")
+        let corpus : TurkishDependencyTreeBankCorpus = TurkishDependencyTreeBankCorpus(fileName: "metu-treebank")
         XCTAssertEqual(5635, corpus.sentenceCount())
         var wordCount : Int = 0
         for i in 0..<corpus.sentenceCount(){

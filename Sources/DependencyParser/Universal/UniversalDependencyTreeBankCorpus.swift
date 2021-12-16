@@ -17,11 +17,9 @@ public class UniversalDependencyTreeBankCorpus : Corpus{
         super.init()
         sentences = []
         wordList = CounterHashMap<Word>()
-        let thisSourceFile = URL(fileURLWithPath: #file)
-        let thisDirectory = thisSourceFile.deletingLastPathComponent()
-        let url = thisDirectory.appendingPathComponent(fileName)
+        let url = Bundle.module.url(forResource: fileName, withExtension: "conllu")
         do{
-            let fileContent = try String(contentsOf: url, encoding: .utf8)
+            let fileContent = try String(contentsOf: url!, encoding: .utf8)
             let lines : [String] = fileContent.split(whereSeparator: \.isNewline).map(String.init)
             for line in lines{
                 if line.hasPrefix("#"){

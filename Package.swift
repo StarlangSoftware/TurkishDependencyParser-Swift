@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -12,13 +12,14 @@ let package = Package(
             targets: ["DependencyParser"]),
     ],
     dependencies: [
-        .package(name: "MorphologicalAnalysis", url: "https://github.com/StarlangSoftware/TurkishMorphologicalAnalysis-Swift.git", .exact("1.0.2")),    ],
+        .package(name: "MorphologicalAnalysis", url: "https://github.com/StarlangSoftware/TurkishMorphologicalAnalysis-Swift.git", .exact("1.0.3")),    ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "DependencyParser",
-            dependencies: ["MorphologicalAnalysis"]),
+            dependencies: ["MorphologicalAnalysis"],
+            resources: [.process("metu-treebank.xml"),.process("tr_boun-ud-dev.conllu"),.process("tr_boun-ud-test.conllu"),.process("tr_boun-ud-train.conllu"),.process("tr_gb-ud-test.conllu"),.process("tr_imst-ud-dev.conllu"),.process("tr_imst-ud-test.conllu"),.process("tr_imst-ud-train.conllu"),.process("tr_pud-ud-test.conllu")]),
         .testTarget(
             name: "DependencyParserTests",
             dependencies: ["DependencyParser"]),
