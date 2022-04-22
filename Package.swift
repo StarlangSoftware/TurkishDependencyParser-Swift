@@ -19,7 +19,7 @@ let package = Package(
         .target(
             name: "DependencyParser",
             dependencies: ["MorphologicalAnalysis"],
-            resources: [.process("metu-treebank.xml"),.process("tr_boun-ud-dev.conllu"),.process("tr_boun-ud-test.conllu"),.process("tr_boun-ud-train.conllu"),.process("tr_gb-ud-test.conllu"),.process("tr_imst-ud-dev.conllu"),.process("tr_imst-ud-test.conllu"),.process("tr_imst-ud-train.conllu"),.process("tr_pud-ud-test.conllu")]),
+            resources: [.process("metu-treebank.xml"),.process("tr_boun-ud-dev.conllu"),.process("tr_boun-ud-test.conllu"),.process("tr_boun-ud-train.conllu"),.process("tr_gb-ud-test.conllu"),.process("tr_imst-ud-dev.conllu"),.process("tr_imst-ud-test.conllu"),.process("tr_imst-ud-train.conllu"),.process("tr_pud-ud-test.conllu"),.process("tr_atis-ud-test.conllu"),.process("tr_atis-ud-dev.conllu"),.process("tr_atis-ud-train.conllu"),.process("tr_framenet-ud-test.conllu"),.process("tr_framenet-ud-dev.conllu"),.process("tr_framenet-ud-train.conllu"),.process("tr_kenet-ud-test.conllu"),.process("tr_kenet-ud-dev.conllu"),.process("tr_kenet-ud-train.conllu"),.process("tr_penn-ud-test.conllu"),.process("tr_penn-ud-dev.conllu"),.process("tr_penn-ud-train.conllu"),.process("tr_tourism-ud-test.conllu"),.process("tr_tourism-ud-dev.conllu"),.process("tr_tourism-ud-train.conllu"),.process("en_atis-ud-test.conllu"),.process("en_atis-ud-dev.conllu"),.process("en_atis-ud-train.conllu")]),
         .testTarget(
             name: "DependencyParserTests",
             dependencies: ["DependencyParser"]),
