@@ -23,6 +23,9 @@ public class TurkishDependencyTreeBankWord : Word{
         return parse
     }
     
+    /// Splits the morphological parse into inflectional groups.
+    /// - Parameter ig: Morphological parse
+    /// - Returns: An array of inflcecitonal groups
     private func splitIntoInflectionalGroups(ig: String) -> [String]{
         var inflectionalGroups : [String] = []
         let igComponents = ig.components(separatedBy: CharacterSet(charactersIn: "[()]"))
@@ -34,6 +37,9 @@ public class TurkishDependencyTreeBankWord : Word{
         return inflectionalGroups
     }
     
+    /// Given the parsed xml node which contains information about a word and related attributes including the
+    /// dependencies, the method constructs a {@link TurkishDependencyTreeBankWord} from it.
+    /// - Parameter attributeDict: Xml parsed node containing information about a word.
     public init(attributeDict: [String : String]){
         super.init(name: "")
         let ig = attributeDict["IG"]

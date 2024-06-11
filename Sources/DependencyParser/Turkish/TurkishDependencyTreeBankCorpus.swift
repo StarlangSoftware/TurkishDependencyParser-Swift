@@ -23,7 +23,10 @@ public class TurkishDependencyTreeBankCorpus : NSObject, XMLParserDelegate{
      */
     public override init(){
     }
-
+    
+    /// Another constructor for {@link TurkishDependencyTreeBankCorpus}. The method gets the corpus as a xml file, and
+    /// reads sentences one by one. For each sentence, the function constructs a TurkishDependencyTreeBankSentence.
+    /// - Parameter fileName: Input file name to read the TurkishDependencyTreeBankCorpus.
     public init(fileName: String){
         super.init()
         let url = Bundle.module.url(forResource: fileName, withExtension: "xml")

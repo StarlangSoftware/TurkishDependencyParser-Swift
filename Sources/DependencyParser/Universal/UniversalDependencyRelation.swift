@@ -69,7 +69,11 @@ public class UniversalDependencyRelation : DependencyRelation, NSCopying{
         }
         return nil
     }
-
+    
+    /// The getDependencyPosType method takes a dependency pos type as string and returns the {@link UniversalDependencyPosType}
+    /// form of it.
+    /// - Parameter tag: Dependency pos type in string form
+    /// - Returns: Dependency pos type for a given dependency pos string
     public static func getDependencyPosType(tag: String) -> UniversalDependencyPosType?{
         for j in 0..<universalDependencyPosTypes.count {
             if tag.lowercased() == universalDependencyPosTypes[j].lowercased() {
@@ -99,6 +103,14 @@ public class UniversalDependencyRelation : DependencyRelation, NSCopying{
         return UniversalDependencyRelation(toWord: toWord, dependencyType: description())
     }
     
+    /// Compares the relation with the given universal dependency relation and returns a parser evaluation score for this
+    /// comparison. If toWord fields are equal for both relation UAS is 1, otherwise it is 0. If both toWord and
+    /// dependency types are the same, LAS is 1, otherwise it is 0. If only dependency types of both relations are
+    /// the same, LS is 1, otherwise it is 0.
+    /// - Parameter relation: Universal dependency relation to be compared.
+    /// - Returns: A parser evaluation score object with (i) LAS = 1, if to and dependency types are same; LAS = 0,
+    /// otherwise, (ii) UAS = 1, if to is the same; UAS = 0, otherwise, (iii) LS = 1, if dependency types are the same;
+    /// LS = 0, otherwise.
     public func compareRelations(relation : UniversalDependencyRelation) -> ParserEvaluationScore{
         var LS : Double = 0.0
         var LAS : Double = 0.0

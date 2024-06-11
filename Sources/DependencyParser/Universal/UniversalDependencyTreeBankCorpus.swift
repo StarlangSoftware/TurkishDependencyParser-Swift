@@ -12,6 +12,9 @@ import Corpus
 
 public class UniversalDependencyTreeBankCorpus : Corpus{
     
+    /// Constructs a universal dependency corpus from an input file. Reads the sentences one by one and constructs a
+    /// universal dependency sentence from each line read.
+    /// - Parameter fileName: Input file name.
     public override init(fileName: String){
         super.init()
         sentences = []
@@ -35,6 +38,10 @@ public class UniversalDependencyTreeBankCorpus : Corpus{
         }
     }
     
+    /// Compares the corpus with the given corpus and returns a parser evaluation score for this comparison. The result
+    /// is calculated by summing up the parser evaluation scores of sentence by sentence comparisons.
+    /// - Parameter corpus: Universal dependency corpus to be compared.
+    /// - Returns: A parser evaluation score object.
     public func compareParses(corpus : UniversalDependencyTreeBankCorpus) -> ParserEvaluationScore{
         let score = ParserEvaluationScore()
         for i in 0..<sentences.count {

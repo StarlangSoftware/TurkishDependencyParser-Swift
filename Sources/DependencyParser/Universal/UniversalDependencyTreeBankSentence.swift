@@ -12,10 +12,15 @@ public class UniversalDependencyTreeBankSentence : Sentence{
     
     private var comments : [String] = []
     
+    /// Empty constructor for the UniversalDependencyTreeBankSentence. Initializes comments.
     public override init(){
         super.init()
     }
-
+    
+    /// Constructor for the UniversalDependencyTreeBankSentence.  Get a line as input and splits the line wrt tab
+    /// character. The number of items should be 10. The items are id, surfaceForm, lemma, upos, xpos, feature list,
+    /// head word index, dependency type, external dependencies and miscellaneous things for one word.
+    /// - Parameter sentence: Sentence string to be processed.
     public override init(sentence: String){
         super.init()
         let lines : [String] = sentence.split(whereSeparator: \.isNewline).map(String.init)
@@ -48,11 +53,15 @@ public class UniversalDependencyTreeBankSentence : Sentence{
             }
         }
     }
-
+    
+    /// Adds a comment string to comments array list.
+    /// - Parameter comment: Comment to be added.
     public func addComment(comment: String){
         comments.append(comment)
     }
     
+    /// Overridden description method. Concatenates the strings of words to get the string of a sentence.
+    /// - Returns: Concatenation of the strings of words.
     public override func description() -> String {
         var result : String = ""
         for comment in comments{
@@ -65,6 +74,10 @@ public class UniversalDependencyTreeBankSentence : Sentence{
         return result
     }
     
+    /// Compares the sentence with the given sentence and returns a parser evaluation score for this comparison. The result
+    /// is calculated by summing up the parser evaluation scores of word by word dpendency relation comparisons.
+    /// - Parameter sentence: Universal dependency sentence to be compared.
+    /// - Returns: A parser evaluation score object.
     public func compareParses(sentence : UniversalDependencyTreeBankSentence) -> ParserEvaluationScore{
         let score = ParserEvaluationScore()
         for i in 0..<words.count {

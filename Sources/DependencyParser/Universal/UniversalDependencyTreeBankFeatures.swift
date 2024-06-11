@@ -11,6 +11,11 @@ public class UniversalDependencyTreeBankFeatures{
     
     private var featureList : Dictionary<String, String>
     
+    /// Constructor of a UniversalDependencyTreeBankFeatures object. Given the language of the word and features of the
+    /// word as a string, the method splits the features with respect to pipe character. Then for each feature type and
+    /// value pair, their values and types are inserted into the featureList hash map. The method also check for validity
+    /// of the feature values for that feature type.
+    /// - Parameter features: Feature string.
     public init(features: String){
         featureList = Dictionary()
         if features != "_"{
@@ -25,14 +30,22 @@ public class UniversalDependencyTreeBankFeatures{
         }
     }
     
+    /// Gets the value of a given feature.
+    /// - Parameter feature: Name of the feature
+    /// - Returns: Value of the feature
     public func getFeatureValue(feature: String) -> String{
         return featureList[feature]!
     }
-
+    
+    /// Checks if the given feature exists in the feature list.
+    /// - Parameter feature: Name of the feature
+    /// - Returns: True, if the feature list contains the feature, false otherwise.
     public func featureExists(feature: String) -> Bool{
         return featureList[feature] != nil
     }
-
+    
+    /// Overridden description method. Returns feature with their values separated with pipe characters.
+    /// - Returns: A string of feature values and their names separated with pipe character.
     public func description() -> String{
         if featureList.isEmpty{
             return "_"
