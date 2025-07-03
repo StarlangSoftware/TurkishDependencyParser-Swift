@@ -67,4 +67,7 @@ public enum UniversalDependencyType : String, CaseIterable{
     case OBL_AGENT
     case OBL_TMOD
     case OBL_NPMOD
+    case NSUBJ_OUTER
+    case CSUBJ_OUTER
+    case ADVCL_RELCL
 }

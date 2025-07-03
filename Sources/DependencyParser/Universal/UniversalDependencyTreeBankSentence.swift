@@ -11,6 +11,7 @@ import Corpus
 public class UniversalDependencyTreeBankSentence : Sentence{
     
     private var comments : [String] = []
+    private var splits : [String] = []
     
     /// Empty constructor for the UniversalDependencyTreeBankSentence. Initializes comments.
     public override init(){
@@ -30,8 +31,8 @@ public class UniversalDependencyTreeBankSentence : Sentence{
             } else {
                 let items : [String] = line.split(separator: "\t").map(String.init)
                 if items.count == 10{
+                    let id = items[0]
                     if !items[0].contains("-"){
-                        let id = items[0]
                         let surfaceForm = items[1]
                         let lemma = items[2]
                         let upos = UniversalDependencyRelation.getDependencyPosType(tag: items[3])
@@ -48,6 +49,8 @@ public class UniversalDependencyTreeBankSentence : Sentence{
                         let word = UniversalDependencyTreeBankWord(id: Int(id)!, name: surfaceForm,
                                                                    lemma: lemma, upos: upos!, xpos: xpos, features: features, relation: relation, deps: deps, misc: misc)
                         addWord(word: word)
+                    } else {
+                        splits.append(id)
                     }
                 }
             }
@@ -58,6 +61,19 @@ public class UniversalDependencyTreeBankSentence : Sentence{
     /// - Parameter comment: Comment to be added.
     public func addComment(comment: String){
         comments.append(comment)
+    }
+    
+    /// Returns number of splits in the sentence
+    /// - Returns: Number of splits in the sentence
+    public func splitSize() -> Int{
+        return splits.count
+    }
+    
+    /// Returns the split at position index
+    /// - Parameter index: Position
+    /// - Returns: The split at position index
+    public func getSplit(index: Int) -> String{
+        return splits[index]
     }
     
     /// Overridden description method. Concatenates the strings of words to get the string of a sentence.

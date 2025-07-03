@@ -19,7 +19,7 @@ public class UniversalDependencyRelation : DependencyRelation, NSCopying{
     "NSUBJ:PASS", "CSUBJ:PASS", "NMOD:NPMOD", "NMOD:POSS",
     "NMOD:TMOD", "ADVMOD:EMPH", "AUX:Q", "COMPOUND:LVC",
     "COMPOUND:REDUP", "CSUBJ:COP", "NMOD:COMP", "NMOD:PART",
-    "NSUBJ:COP", "OBL:AGENT", "OBL:TMOD", "OBL:NPMOD"]
+    "NSUBJ:COP", "OBL:AGENT", "OBL:TMOD", "OBL:NPMOD", "NSUBJ:OUTER", "CSUBJ:OUTER", "ADVCL:RELCL"]
     
     static var universalDependencyTags : [UniversalDependencyType] = [UniversalDependencyType.ACL, UniversalDependencyType.ADVCL,
     UniversalDependencyType.ADVMOD, UniversalDependencyType.AMOD, UniversalDependencyType.APPOS, UniversalDependencyType.AUX, UniversalDependencyType.CASE,
@@ -34,7 +34,8 @@ public class UniversalDependencyRelation : DependencyRelation, NSCopying{
     UniversalDependencyType.NSUBJ_PASS, UniversalDependencyType.CSUBJ_PASS, UniversalDependencyType.NMOD_NPMOD, UniversalDependencyType.NMOD_POSS,
     UniversalDependencyType.NMOD_TMOD, UniversalDependencyType.ADVMOD_EMPH, UniversalDependencyType.AUX_Q, UniversalDependencyType.COMPOUND_LVC,
     UniversalDependencyType.COMPOUND_REDUP, UniversalDependencyType.CSUBJ_COP, UniversalDependencyType.NMOD_COMP, UniversalDependencyType.NMOD_PART,
-    UniversalDependencyType.NSUBJ_COP, UniversalDependencyType.OBL_AGENT, UniversalDependencyType.OBL_TMOD, UniversalDependencyType.OBL_NPMOD]
+    UniversalDependencyType.NSUBJ_COP, UniversalDependencyType.OBL_AGENT, UniversalDependencyType.OBL_TMOD, UniversalDependencyType.OBL_NPMOD,
+    UniversalDependencyType.NSUBJ_OUTER, UniversalDependencyType.CSUBJ_OUTER, UniversalDependencyType.ADVCL_RELCL]
     
     static var universalDependencyPosTypes : [String] = ["ADJ", "ADV", "INTJ", "NOUN", "PROPN", "VERB", "ADP", "AUX", "CCONJ",
     "DET", "NUM", "PART", "PRON", "SCONJ", "PUNCT", "SYM", "X"]
