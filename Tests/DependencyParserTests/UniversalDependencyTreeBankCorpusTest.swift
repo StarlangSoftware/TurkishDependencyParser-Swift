@@ -28,21 +28,21 @@ final class UniversalDependencyTreeBankCorpusTest: XCTestCase {
     }
 
     func testDependencyCorpus2() {
-        let corpus : UniversalDependencyTreeBankCorpus = UniversalDependencyTreeBankCorpus(fileName: "tr_imst-ud-dev")
+        let corpus : UniversalDependencyTreeBankCorpus = UniversalDependencyTreeBankCorpus(fileName: "tr_imst2-ud-dev")
         XCTAssertEqual(1100, corpus.sentenceCount())
         XCTAssertEqual(10542, wordCount(corpus: corpus))
         XCTAssertEqual(279, splitCount(corpus: corpus))
     }
 
     func testDependencyCorpus3() {
-        let corpus : UniversalDependencyTreeBankCorpus = UniversalDependencyTreeBankCorpus(fileName: "tr_imst-ud-test")
+        let corpus : UniversalDependencyTreeBankCorpus = UniversalDependencyTreeBankCorpus(fileName: "tr_imst2-ud-test")
         XCTAssertEqual(1100, corpus.sentenceCount())
         XCTAssertEqual(10032, wordCount(corpus: corpus))
         XCTAssertEqual(278, splitCount(corpus: corpus))
     }
 
     func testDependencyCorpus4() {
-        let corpus : UniversalDependencyTreeBankCorpus = UniversalDependencyTreeBankCorpus(fileName: "tr_imst-ud-train")
+        let corpus : UniversalDependencyTreeBankCorpus = UniversalDependencyTreeBankCorpus(fileName: "tr_imst2-ud-train")
         XCTAssertEqual(3435, corpus.sentenceCount())
         XCTAssertEqual(37522, wordCount(corpus: corpus))
         XCTAssertEqual(1082, splitCount(corpus: corpus))
